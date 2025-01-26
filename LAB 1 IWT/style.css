@@ -1,0 +1,36 @@
+/* External Stylesheet */
+
+/* Body styling */
+body {
+    background-color: #e0f7fa; /* Overridden by internal CSS */
+}
+
+/* Styling the div */
+div {
+    border: 2px solid #4CAF50; /* Green border */
+    padding: 20px;
+    margin: 20px;
+}
+
+/* Styling the test class */
+.test {
+    color: #009688; /* Teal - overridden by internal and inline */
+    font-size: 16px;
+}
+
+/* Styling the unique id */
+#unique {
+    font-style: normal; /* Overridden by inline */
+    color: purple; /* Overridden by inline */
+}
+
+/* Styling all paragraphs */
+p {
+    font-size: 14px; /* Overridden by internal CSS */
+    color: gray; /* Overridden by internal CSS */
+}
+
+/* Universal selector */
+* {
+    font-weight: bold; /* Overridden by class, id, or inline */
+}

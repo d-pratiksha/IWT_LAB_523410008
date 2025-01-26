@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All about cats</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff; /* Overridden by inline style */
+            margin: 0;
+            padding: 0;
+        }
+
+        .test {
+            color: #4CAF50; /* Green */
+        }
+
+        #unique {
+            font-style: italic; /* Overridden by inline */
+            color: #d32f2f; /* Red */
+        }
+
+        .article-container {
+            margin: 20px auto;
+            max-width: 800px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .article-container h1 {
+            color: #4CAF50;
+            text-align: center;
+        }
+
+        .article-container p {
+            color: #555;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .highlight {
+            color: #d32f2f;
+            font-weight: bold;
+        }
+            
+        * {
+            font-weight: bold; /* Universal selector - lowest priority */
+        }
+    </style>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Priority: Inline > ID sel > Class sel > Element sel > Universal sel -->
+
+</head>
+<body>
+    <div class="article-container">
+        <h1>All About Cats</h1>
+        <p>Cats are fascinating creatures that have been companions to humans for thousands of years. Known for their <span class="highlight">grace</span> and independence, cats are among the most popular pets worldwide.</p>
+        <p>Cats come in a variety of breeds, colors, and sizes. They are skilled hunters, often spending hours stalking their prey. Despite their predatory instincts, domestic cats are loving and can form deep bonds with their owners.</p>
+        <p style="color: #673ab7; font-style: italic;">Fun fact: Cats spend about 70% of their lives sleeping!</p>
+    </div>
+</body>
+</html>

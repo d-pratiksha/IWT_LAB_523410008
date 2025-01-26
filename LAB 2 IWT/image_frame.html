@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Map - Fun with Pets</title>
+    <style>
+        /* General styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+            text-align: center;
+        }
+
+        header {
+            background-color: #ffcc99;
+            padding: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #5a403a;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #5a403a;
+            margin: 20px 0;
+        }
+
+        .container {
+            position: relative;
+            display: inline-block;
+            margin: 20px auto;
+        }
+
+        img {
+            display: block;
+            border: 4px solid #ffcc99;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Styled debugging circle (optional) */
+        .area-circle {
+            position: absolute;
+            border: 2px dashed red;
+            border-radius: 50%;
+            width: 100px; /* Radius * 2 */
+            height: 100px;
+            top: 170px; /* Adjust Y position */
+            left: 190px; /* Adjust X position */
+        }
+
+        footer {
+            margin-top: 30px;
+            padding: 10px;
+            background-color: #ffcc99;
+            color: #5a403a;
+            font-size: 14px;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+    <script>
+        function playSound() {
+            const audio = document.getElementById('horse-sound');
+            audio.play();
+        }
+    </script>
+</head>
+<body>
+    <header>
+        Fun with Pets - Explore and Learn!
+    </header>
+
+    <h2>Click the area on the image to hear a sound!</h2>
+
+    <div class="container">
+        <!-- Main image -->
+        <img src="images/horse.jpg" alt="Horse Image" width="500" usemap="#image-map">
+
+        <!-- Optional debugging visual (remove if unnecessary) -->
+        <div class="area-circle"></div>
+    </div>
+
+    <!-- Image map -->
+    <map name="image-map">
+        <area shape="circle" coords="250,220,50" href="#" onclick="playSound();" alt="Horse Sound">
+    </map>
+
+    <!-- Audio tag -->
+    <audio id="horse-sound" src="audio/horse_voice.mp3" preload="auto"></audio>
+</body>
+</html>
