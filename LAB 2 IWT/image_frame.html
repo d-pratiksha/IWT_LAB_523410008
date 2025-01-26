@@ -3,71 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Map - Fun with Pets</title>
+    <title>Fun with Pets</title>
     <style>
-        /* General styling */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
-            color: #333;
-            text-align: center;
-        }
-
-        header {
-            background-color: #ffcc99;
-            padding: 20px;
+         header {
+            background-color: peachpuff;
             font-size: 24px;
-            font-weight: bold;
-            color: #5a403a;
+            text-align: center;
+            padding: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
+
         h2 {
-            color: #5a403a;
+            text-align: center;
+            font-size: 22px;
             margin: 20px 0;
         }
-
-        .container {
+       .container {
             position: relative;
-            display: inline-block;
+            width: 100%;
+            max-width: 500px;
             margin: 20px auto;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+          
         }
 
         img {
-            display: block;
-            border: 4px solid #ffcc99;
+            width: 100%;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        /* Styled debugging circle (optional) */
-        .area-circle {
-            position: absolute;
-            border: 2px dashed red;
-            border-radius: 50%;
-            width: 100px; /* Radius * 2 */
-            height: 100px;
-            top: 170px; /* Adjust Y position */
-            left: 190px; /* Adjust X position */
-        }
-
-        footer {
-            margin-top: 30px;
-            padding: 10px;
-            background-color: #ffcc99;
-            color: #5a403a;
-            font-size: 14px;
-            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
-        }
+        
     </style>
-    <script>
-        function playSound() {
-            const audio = document.getElementById('horse-sound');
-            audio.play();
-        }
-    </script>
 </head>
 <body>
     <header>
@@ -77,19 +45,20 @@
     <h2>Click the area on the image to hear a sound!</h2>
 
     <div class="container">
-        <!-- Main image -->
-        <img src="images/horse.jpg" alt="Horse Image" width="500" usemap="#image-map">
-
-        <!-- Optional debugging visual (remove if unnecessary) -->
-        <div class="area-circle"></div>
+        <img src="images/dog.jpg" alt="dog image" width="500" usemap="#image-map">
     </div>
 
-    <!-- Image map -->
     <map name="image-map">
-        <area shape="circle" coords="250,220,50" href="#" onclick="playSound();" alt="Horse Sound">
+        <area shape="circle" coords="250,220,50" href="#" onclick="playSound();" alt="dog Sound">
     </map>
 
-    <!-- Audio tag -->
-    <audio id="horse-sound" src="audio/horse_voice.mp3" preload="auto"></audio>
+    <audio id="dog-sound" src="audio/dog_voice.mp3" preload="auto"></audio>
+
+    <script>
+        function playSound() {
+            var audio = document.getElementById("dog-sound");
+            audio.play();
+        }
+    </script>
 </body>
 </html>
