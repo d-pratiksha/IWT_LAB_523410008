@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="style.xsl" ?>
+<pets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:noNamespaceSchemaLocation="pet_schema.xsd">
+    <pet id="101">
+        <name>Buddy</name>
+        <species>Dog</species>
+        <age>5</age>
+        <food_price>10000.00</food_price>
+    </pet>
+    <pet id="102">
+        <name>Mittens</name>
+        <species>Cat</species>
+        <age>3</age>
+        <food_price>8500.00</food_price>
+    </pet>
+    <pet id="103">
+        <name>Charlie</name>
+        <species>Dog</species>
+        <age>2</age>
+        <food_price>20500.00</food_price>
+    </pet>
+    <pet id="104">
+        <name>Luna</name>
+        <species>Cat</species>
+        <age>4</age>
+        <food_price>6500.00</food_price>
+    </pet>
+    <pet id="105">
+        <name>Max</name>
+        <species>Parrot</species>
+        <age>1</age>
+        <food_price>4800.00</food_price>
+    </pet>
+    <pet id="106">
+        <name>Rocky</name>
+        <species>Hamster</species>
+        <age>1</age>
+        <food_price>8200.00</food_price>
+    </pet>
+    <pet id="107">
+        <name>Daisy</name>
+        <species>Rabbit</species>
+        <age>3</age>
+        <food_price>5600.00</food_price>
+    </pet>
+    <pet id="108">
+        <name>Bella</name>
+        <species>Dog</species>
+        <age>6</age>
+        <food_price>4300.00</food_price>
+    </pet>
+    <pet id="109">
+        <name>Coco</name>
+        <species>Guinea Pig</species>
+        <age>2</age>
+        <food_price>3200.00</food_price>
+    </pet>
+</pets>
