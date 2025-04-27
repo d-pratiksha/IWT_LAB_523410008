@@ -5,12 +5,8 @@ const xsdPath = 'pet_schema.xsd';
 
 validator.validateXML(xmlString, xsdPath)
   .then(result => {
-    if (result.valid) {
-      console.log("XML is valid!");
-    } else {
-      console.error("XML is invalid:", result.errors);
-    }
+      console.log("your XML is valid.");
   })
   .catch(error => {
-    console.error("Validation error:", error);
+    console.error("Validation error! -> ", error);
   });

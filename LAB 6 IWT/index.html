@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cookies & Regex</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f8f4;
+      color: #222;
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    h1 {
+      color: #256029;
+      margin-bottom: 1.5rem;
+      letter-spacing: 1px;
+      font-size: 2.2rem;
+      font-weight: 700;
+      text-shadow: 0 2px 8px #e0f7e9;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.97);
+      border-radius: 18px;
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.10);
+      padding: 2.5rem 2rem 2rem 2rem;
+      max-width: 400px;
+      width: 100%;
+      margin: 2rem auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: box-shadow 0.3s;
+    }
+
+    .container:hover {
+      box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.15);
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 0.9rem 1rem;
+      margin: 1.2rem 0 1.5rem 0;
+      border: 1.5px solid #a3c9a8;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      background: #f7faf7;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+      box-shadow: 0 2px 8px #e0f7e933;
+    }
+
+    input[type="text"]:focus {
+      border-color: #43a047;
+      box-shadow: 0 0 0 2px #43a04733;
+      background: #f0fff0;
+    }
+
+    .button-group {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      width: 100%;
+      margin-bottom: 0.5rem;
+    }
+
+    button {
+      flex: 1 1 0;
+      padding: 0.85rem 0;
+      font-size: 1.08rem;
+      border: none;
+      border-radius: 8px;
+      background: #43a047;
+      color: white;
+      cursor: pointer;
+      font-weight: 600;
+      box-shadow: none;
+      transition: background 0.2s, transform 0.2s;
+      margin: 0;
+    }
+
+    button:hover {
+      background: #388e3c;
+      transform: translateY(-2px) scale(1.04);
+    }
+
+    .message {
+      margin-top: 1.5rem;
+      font-weight: 600;
+      color: #43a047;
+      min-height: 1.5em;
+      font-size: 1.1rem;
+      letter-spacing: 0.5px;
+      transition: color 0.2s;
+    }
+  </style>
+</head>
+<body>
+  <h1>Cookies & Regex</h1>
+  <div class="container">
+    <input type="text" id="mobileNumber" placeholder="Enter mobile number" />
+    <div class="button-group">
+      <button onclick="pingServer()">Ping Server</button>
+      <button onclick="checkMobileNumber()">Check Mobile Number</button>
+    </div>
+    <div class="message" id="message"></div>
+  </div>
+
+  <script>
+    const serverURL = "http://localhost:8000";
+
+    function pingServer() {
+      fetch(`${serverURL}/`, {
+        method: "GET",
+        credentials: "include"
+      })
+        .then(response => response.json())
+        .then(data => {
+          console.log("Server Response:", data);
+          document.getElementById("message").textContent = data.message;
+        })
+        .catch(error => {
+          console.error("Error:", error);
+          document.getElementById("message").textContent = "Error connecting to server.";
+        });
+    }
+
+    function checkMobileNumber() {
+      const mobileNumber = document.getElementById("mobileNumber").value.trim();
+      if (!mobileNumber) {
+        alert("Please enter a mobile number.");
+        return;
+      }
+
+      fetch(`${serverURL}/check-mobile`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        credentials: "include",
+        body: JSON.stringify({ mobileNumber })
+      })
+        .then(response => response.json())
+        .then(data => {
+          console.log("Validation Response:", data);
+          alert(data.message);
+        })
+        .catch(error => {
+          console.error("Error:", error);
+          alert("An error occurred. Please try again.");
+        });
+    }
+  </script>
+</body>
+</html>

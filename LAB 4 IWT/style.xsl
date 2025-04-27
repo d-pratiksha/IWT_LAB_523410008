@@ -3,42 +3,19 @@
 <xsl:template match="/">
     <html>
     <head>
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-                background-color: #f8f9fa;
-                text-align: center;
-            }
-            table {
-                width: 100%;
-                <!-- border-collapse: collapse; -->
-                background-color:rgb(190, 163, 233);
-                
-            }
-            th, td {
-                padding: 12px;
-                border: 3px solid #ddd;
-                text-align: center;
-            }
-            th {
-                background-color:rgb(183, 27, 240);
-                color: white;
-            }
-            tr:nth-child(even) {
-                background-color:rgb(192, 233, 217);
-            }
-        </style>
+        <link rel="stylesheet" type="text/css" href="style.css"></link>
     </head>
     <body>
-        <h2>List of Pets</h2>
+        <h2>Pets in the area</h2>
         <table>
-            <tr><th>PET ID</th><th>NAME</th><th>SPECIES</th><th>AGE</th></tr>
+            <tr><th>PET ID</th><th>NAME</th><th>SPECIES</th><th>AGE</th><th>MONTHLY PET FOOD PRICE</th></tr>
             <xsl:for-each select="pets/pet">
                 <tr>
                     <td><xsl:value-of select="@id"/></td>
                     <td><xsl:value-of select="name"/></td>
                     <td><xsl:value-of select="species"/></td>
                     <td><xsl:value-of select="age"/></td>
+                    <td>Rs. <xsl:value-of select="food_price"/></td>
                 </tr>
             </xsl:for-each>
         </table>
